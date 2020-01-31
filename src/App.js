@@ -5,147 +5,6 @@ import './App.css';
 import Todo from './toDo/toDo'
 import Field from './toDo/field'
 
-// const App = props => {
-//   //returns an array with exactly teo elements 
-//   //1st element = current state
-//   //2nd element = function to update state 
-//   const [personsState, setPersonsState ] = useState({
-//     Persons: [{ name: "siddharth", age: 23 }],
-
-//   });
-
-//   const [otheresState, setOthersState ]= useState({
-//     otherState: 'some other value'
-//   })
-//    console.log(personsState,otheresState);
-//   const switchNameHandler = () => {
-//         setPersonsState({
-//           Persons:[
-//             {
-//             name:"agra",
-//             age:300
-//           }
-//         ]
-//         });
-//       }
-//   //render is not used here.
-//   return (
-//     <div className="App">
-//       <Person name={personsState.Persons[0].name} age={personsState.Persons[0].age}>my hobby is sleeping.</Person>
-//       <button onClick={switchNameHandler}>switch</button>
-//     </div>
-
-//   )
-
-// }
-
-
-// class based components
-
-// class App extends Component {
-
-//   constructor(props){
-//     super(props);
-//     console.log("[app.js] constructor");
-//     this.state = {
-//       Persons: [
-//         { id:1,name: "hululu", age: 20 },
-//         { id:2,name: "hulu", age: 10 },
-//         { id:3,name: "hul", age: 5 }],
-//       showPersons: false
-//     }
-//   }
-//   static getDerivedStateFromProps(props,state){
-//     console.log("[App.js] getdrivedStateFromProps");
-//     return state;
-//   }
-//   componentDidMount(){
-//     console.log("[App.js] componentDidMount ");
-//   }
-  
-//   switchNameHandler = (name) => {
-//     this.setState({
-//       Persons: [{
-//         name,
-//         age: 30
-//       },
-//       {
-//         name: "sid",
-//         age: 4
-//       }, {
-//         name: "ishaan",
-//         age: 6
-//       }
-//       ]
-//     })
-//   }
-
-//   toggleNameHandler = () => {
-//     const doesShow = this.state.showPersons;
-//     this.setState({ showPersons: !doesShow });
-//   }
-
-//   deleteNameHandler=(personIndex)=>{
-//     const newPerson = [...this.state.Persons]
-//     newPerson.splice(personIndex,1)
-//     this.setState({ Persons: newPerson })
-//   }
-
-//   nameChangeHandler = (event,id) => {
-//     const personIndex = this.state.Persons.findIndex(p=>{
-//       return p.id === id;
-//     })
-//     const person = { ...this.state.Persons[personIndex]};
-//     //or 
-//     //const person = Object.assign({},this.state.Persons[personIndex])
-//     person.name = event.target.value;
-//     const persons = [...this.state.Persons]
-//     persons[personIndex] = person
-//     this.setState({
-//       Persons: persons
-
-//     })
-
-//   }
-
-
-//   render() {
-//     console.log("[App.js render]");
-//     let persons = null;
-
-//     if (this.state.showPersons) {
-
-//       persons = (
-//         <div>
-//           {/* <Persons
-//           click={()=>this.deleteNameHandler(index)}
-//           change={(event)=>this.nameChangeHandler(event,person.id)}
-//           ></Persons> */}
-//           {
-//           this.state.Persons.map((person,index) => {
-//             return (
-//               <Persons name={person.name}
-//               age={person.age}
-//               key={person.id}
-//               click={()=>this.deleteNameHandler(index)}
-//               changed= {(event)=>this.nameChangeHandler(event,person.id)}></Persons>
-//               )
-//           }
-//           )
-//           }
-//         </div>
-//       )
-//     }
-
-//     return (
-
-//       <div className="App">
-//         <button onClick={this.toggleNameHandler} >show/hide</button >
-//         {persons}
-//       </div>
-//     );
-//   }
-// }
 class App extends Component {
 
   state = {
@@ -193,17 +52,11 @@ class App extends Component {
     this.setState({data:copyData})
     // console.log(this.state)
   }
+  //to update the boolean values in state
   checkHandler = (value,index)=>{
-    
     let newVAL = [...this.state.value]
-    // console.log(newVAL)
-    // console.log(index+""+value)
     value = !value
     newVAL[index].bool = value
-    // console.log(newVAL)
-    // console.log(index+""+value)
-    // this.setState(this.state.value[index].bool : !value)
-    // console.log(value,index)
     this.setState({value:newVAL})
     console.log(this.state.value[index].bool)
   }
